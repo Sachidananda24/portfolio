@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-accent: #2DD4BF;
+  --color-bg: #000000;
+  --color-surface: #111111;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-white font-sans selection:bg-accent selection:text-black antialiased;
+  }
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.atmosphere-glow {
+  background: 
+    radial-gradient(circle at 0% 50%, rgba(45, 212, 191, 0.15) 0%, transparent 50%);
+}
+
+.text-gradient-accent {
+  background: linear-gradient(to right, #2DD4BF, #5EEAD4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-accent-subtle {
+  border-color: rgba(45, 212, 191, 0.1);
+}
+
+.bg-accent-glass {
+  background: rgba(45, 212, 191, 0.05);
+  backdrop-filter: blur(10px);
+}
