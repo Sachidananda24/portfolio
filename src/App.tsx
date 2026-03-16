@@ -57,12 +57,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/40 backdrop-blur-xl border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Logo />
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, i) => (
             <motion.a
               key={link.name}
@@ -70,7 +70,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-[11px] uppercase tracking-[0.3em] text-white/50 hover:text-gold transition-colors font-bold"
+              className="text-sm uppercase tracking-widest text-white/70 hover:text-gold transition-colors"
             >
               {link.name}
             </motion.a>
@@ -79,9 +79,7 @@ const Navbar = () => {
             href="#contact"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-gold text-black text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white transition-all duration-300"
+            className="px-6 py-2 border border-gold text-gold text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition-all duration-300"
           >
             Hire Me
           </motion.a>
@@ -138,15 +136,15 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-block text-gold uppercase tracking-[0.5em] text-[10px] mb-8 font-bold"
+            className="inline-block text-gold uppercase tracking-[0.3em] text-xs mb-6 font-semibold"
           >
             Premium Web Design Services
           </motion.span>
-          <h1 className="text-6xl md:text-8xl font-serif font-bold leading-[1.1] mb-10 tracking-tight">
-            I Design <span className="text-gradient-gold italic">Bold & Luxury</span> Websites.
+          <h1 className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-8">
+            I Design <span className="inline-block px-4 py-2 bg-gold text-black -rotate-1 transform transition-transform hover:rotate-0">Bold & Luxury</span> Websites That Grow Your Business.
           </h1>
-          <p className="text-xl text-white/40 mb-12 max-w-lg leading-relaxed font-light">
-            Zero upfront payment. High-converting digital experiences tailored for premium local businesses.
+          <p className="text-lg text-white/60 mb-10 max-w-lg leading-relaxed">
+            Zero upfront payment. High-converting designs tailored for gyms, restaurants, and local businesses.
           </p>
           <div className="flex flex-wrap gap-6">
             <a 
@@ -163,17 +161,6 @@ const Hero = () => {
               Hire Me
             </a>
           </div>
-
-          {/* Scroll Indicator */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="absolute bottom-10 left-0 hidden lg:flex flex-col items-center gap-4"
-          >
-            <span className="text-[10px] uppercase tracking-[0.5em] text-white/20 rotate-90 origin-left translate-x-3 mb-12">Scroll</span>
-            <div className="w-[1px] h-24 bg-gradient-to-b from-gold to-transparent" />
-          </motion.div>
         </motion.div>
 
         <motion.div
@@ -245,17 +232,17 @@ const About = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
+            className="grid grid-cols-2 gap-6"
           >
             {[
-              { label: 'HTML5', icon: <Code className="w-5 h-5" /> },
-              { label: 'CSS3', icon: <Layout className="w-5 h-5" /> },
-              { label: 'JavaScript', icon: <Zap className="w-5 h-5" /> },
-              { label: 'Responsive', icon: <Smartphone className="w-5 h-5" /> },
+              { label: 'HTML5', icon: <Code className="w-6 h-6" /> },
+              { label: 'CSS3', icon: <Layout className="w-6 h-6" /> },
+              { label: 'JavaScript', icon: <Zap className="w-6 h-6" /> },
+              { label: 'Responsive', icon: <Smartphone className="w-6 h-6" /> },
             ].map((skill, i) => (
-              <div key={i} className="p-10 bg-white/[0.02] border border-white/5 rounded-3xl backdrop-blur-sm hover:border-gold/40 transition-all duration-500 group">
-                <div className="text-gold mb-6 group-hover:scale-110 transition-transform duration-500">{skill.icon}</div>
-                <h4 className="font-bold tracking-[0.2em] uppercase text-[10px] text-white/60 group-hover:text-white transition-colors">{skill.label}</h4>
+              <div key={i} className="p-8 bg-luxury-gray border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group">
+                <div className="text-gold mb-4 group-hover:scale-110 transition-transform">{skill.icon}</div>
+                <h4 className="font-bold tracking-widest uppercase text-xs">{skill.label}</h4>
               </div>
             ))}
           </motion.div>
@@ -305,12 +292,11 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-10 bg-white/[0.02] border border-white/5 rounded-[2rem] hover:bg-gold/[0.03] hover:border-gold/30 transition-all duration-500 group relative overflow-hidden"
+              className="p-10 bg-luxury-gray border border-white/5 rounded-3xl hover:bg-gold/5 hover:border-gold/20 transition-all group"
             >
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-colors" />
-              <div className="text-gold mb-8 group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-500">{s.icon}</div>
-              <h4 className="text-2xl font-serif mb-4">{s.title}</h4>
-              <p className="text-white/40 text-sm leading-relaxed font-light">{s.desc}</p>
+              <div className="text-gold mb-8 group-hover:translate-y-[-4px] transition-transform">{s.icon}</div>
+              <h4 className="text-xl font-serif mb-4">{s.title}</h4>
+              <p className="text-white/50 text-sm leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -409,56 +395,55 @@ const WhyChooseMe = () => {
   ];
 
   return (
-    <section className="py-32 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gold/[0.02] -skew-x-12 translate-x-1/4" />
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gold/5 -skew-x-12 translate-x-1/4" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-sm uppercase tracking-[0.5em] text-gold font-bold mb-8">The Advantage</h2>
-            <h3 className="text-5xl md:text-6xl font-serif mb-12 leading-[1.1]">
+            <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">The Advantage</h2>
+            <h3 className="text-4xl md:text-5xl font-serif mb-10 leading-tight">
               Why Work With <span className="text-gradient-gold italic">Me?</span>
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {reasons.map((reason, i) => (
                 <motion.div 
                   key={i} 
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="flex items-center gap-4 group"
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  className="flex items-center gap-4"
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
-                  <span className="text-white/60 group-hover:text-white transition-colors font-light tracking-wide">{reason}</span>
+                  <span className="text-white/80 font-medium">{reason}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-16 bg-white/[0.02] border border-gold/20 rounded-[3rem] relative backdrop-blur-sm"
+            className="p-12 bg-luxury-gray border border-gold/20 rounded-3xl relative"
           >
-            <div className="absolute -top-4 -left-4 px-8 py-3 bg-gold text-black text-[10px] font-bold uppercase tracking-[0.3em]">
+            <div className="absolute -top-4 -left-4 px-6 py-2 bg-gold text-black text-xs font-bold uppercase tracking-widest">
               Pricing Model
             </div>
-            <h4 className="text-4xl font-serif mb-8 leading-tight">Flexible & Creative Pricing</h4>
-            <p className="text-white/40 leading-relaxed mb-10 font-light text-lg">
+            <h4 className="text-3xl font-serif mb-6">Flexible & Creative Pricing</h4>
+            <p className="text-white/60 leading-relaxed mb-8">
               I don't believe in rigid, one-size-fits-all pricing. Every business is unique, and so is my approach to billing. We'll find a creative model that works for your budget and goals.
             </p>
-            <div className="p-8 bg-gold/[0.03] rounded-2xl border border-gold/10 relative group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-gold scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500" />
-              <p className="text-gold font-bold uppercase tracking-[0.3em] text-[10px] mb-4">The Commitment</p>
-              <p className="text-white/80 italic text-xl font-serif leading-relaxed">"I only get paid when you are 100% satisfied with the result. No risks, just results."</p>
+            <div className="p-6 bg-white/5 rounded-xl border border-white/5">
+              <p className="text-gold font-bold uppercase tracking-widest text-xs mb-2">The Commitment</p>
+              <p className="text-white italic">"I only get paid when you are 100% satisfied with the result. No risks, just results."</p>
             </div>
           </motion.div>
         </div>
@@ -518,51 +503,46 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white/[0.02] p-12 rounded-[2.5rem] border border-white/5 backdrop-blur-sm"
+            className="bg-luxury-gray p-10 rounded-3xl border border-white/5"
           >
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold ml-1">Name</label>
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Name</label>
                   <input 
                     type="text" 
                     placeholder="John Doe"
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-5 focus:outline-none focus:border-gold/50 transition-all placeholder:text-white/10"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold ml-1">Email</label>
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Email</label>
                   <input 
                     type="email" 
                     placeholder="john@example.com"
-                    className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-5 focus:outline-none focus:border-gold/50 transition-all placeholder:text-white/10"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors"
                   />
                 </div>
               </div>
-              <div className="space-y-3">
-                <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold ml-1">Subject</label>
-                <div className="relative">
-                  <select className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-5 focus:outline-none focus:border-gold/50 transition-all appearance-none cursor-pointer">
-                    <option className="bg-luxury-black">New Project</option>
-                    <option className="bg-luxury-black">Website Redesign</option>
-                    <option className="bg-luxury-black">Consultation</option>
-                  </select>
-                  <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                    <ChevronRight className="w-4 h-4 rotate-90" />
-                  </div>
-                </div>
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Subject</label>
+                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors appearance-none">
+                  <option className="bg-luxury-gray">New Project</option>
+                  <option className="bg-luxury-gray">Website Redesign</option>
+                  <option className="bg-luxury-gray">Consultation</option>
+                </select>
               </div>
-              <div className="space-y-3">
-                <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold ml-1">Message</label>
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Message</label>
                 <textarea 
                   rows={4}
                   placeholder="Tell me about your vision..."
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-8 py-5 focus:outline-none focus:border-gold/50 transition-all resize-none placeholder:text-white/10"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors resize-none"
                 />
               </div>
-              <button className="w-full py-6 bg-gold text-black font-bold uppercase tracking-[0.3em] text-[11px] hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 group">
+              <button className="w-full py-5 bg-gold text-black font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors flex items-center justify-center gap-2">
                 Send Message
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-4 h-4" />
               </button>
             </form>
           </motion.div>
@@ -574,31 +554,18 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="py-20 border-t border-white/5 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-        <div className="flex flex-col items-center md:items-start gap-4">
-          <Logo className="scale-90 origin-left" />
-          <p className="text-white/20 text-[10px] uppercase tracking-[0.4em] mt-2">Crafting digital excellence</p>
-        </div>
+    <footer className="py-12 border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+        <Logo className="scale-90 origin-left" />
         
-        <div className="flex flex-col items-center gap-6">
-          <div className="flex gap-10">
-            <a href="#about" className="text-[10px] uppercase tracking-[0.3em] text-white/30 hover:text-gold transition-colors font-bold">About</a>
-            <a href="#portfolio" className="text-[10px] uppercase tracking-[0.3em] text-white/30 hover:text-gold transition-colors font-bold">Work</a>
-            <a href="#contact" className="text-[10px] uppercase tracking-[0.3em] text-white/30 hover:text-gold transition-colors font-bold">Contact</a>
-          </div>
-          <p className="text-white/20 text-[10px] uppercase tracking-[0.2em]">
-            &copy; {new Date().getFullYear()} Sachidananda Sahoo.
-          </p>
-        </div>
+        <p className="text-white/40 text-sm">
+          &copy; {new Date().getFullYear()} Sachidananda Sahoo. All rights reserved.
+        </p>
 
-        <div className="flex gap-4">
-          <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 hover:border-gold/30 hover:text-gold transition-all cursor-pointer">
-            <Instagram className="w-4 h-4" />
-          </div>
-          <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 hover:border-gold/30 hover:text-gold transition-all cursor-pointer">
-            <Linkedin className="w-4 h-4" />
-          </div>
+        <div className="flex gap-8">
+          <a href="#about" className="text-xs uppercase tracking-widest text-white/40 hover:text-gold transition-colors">About</a>
+          <a href="#portfolio" className="text-xs uppercase tracking-widest text-white/40 hover:text-gold transition-colors">Work</a>
+          <a href="#contact" className="text-xs uppercase tracking-widest text-white/40 hover:text-gold transition-colors">Contact</a>
         </div>
       </div>
     </footer>
@@ -607,13 +574,9 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen selection:bg-gold selection:text-black bg-luxury-black relative">
-      {/* Global Decorative Background */}
-      <div className="fixed inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
-      <div className="fixed inset-0 atmosphere-glow pointer-events-none" />
-      
+    <div className="min-h-screen selection:bg-gold selection:text-black">
       <Navbar />
-      <main className="relative z-10">
+      <main>
         <Hero />
         <About />
         <Services />
