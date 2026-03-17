@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { db, auth, googleProvider } from '../firebase';
+import { db, auth } from '../firebase';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
-import { signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
+
+const googleProvider = new GoogleAuthProvider();
 
 interface AdminPanelProps {
   isOpen: boolean;

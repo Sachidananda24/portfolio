@@ -79,7 +79,7 @@ const Navbar = () => {
             href="#contact"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="btn-secondary"
+            className="border border-gold text-gold px-4 py-2 rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-black transition-colors"
           >
             Hire Me
           </motion.a>
@@ -149,14 +149,14 @@ const Hero = () => {
           <div className="flex flex-wrap gap-6">
             <a 
               href="#portfolio" 
-              className="btn-primary group"
+                            className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors group"
             >
               View My Work
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
               href="#contact" 
-              className="btn-secondary"
+              className="border border-gold text-gold px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-black transition-colors"
             >
               Hire Me
             </a>
@@ -169,6 +169,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="relative"
         >
+          <div className="absolute -inset-4 bg-gold/10 blur-3xl rounded-full -z-10" />
           <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 relative group shadow-2xl shadow-gold/10">
             <img 
               src="https://lh3.googleusercontent.com/pw/AP1GczMQuSKhvu1QHdrSMhQIE8QOUfTQbz8kvXnmRDAH6Alf1pwYlPnV5qz95aWIcHB1wxYDyw4N46uqnfWRyJpfaBauE_5M9SasIxLgmc3fovroTxkxtnRq_bObad3HXAqeWeK4E2z2Bal3pgLOgv_4g-w_=w609-h913-s-no-gm?authuser=0" 
@@ -240,7 +241,7 @@ const About = () => {
               { label: 'JavaScript', icon: <Zap className="w-6 h-6" /> },
               { label: 'Responsive', icon: <Smartphone className="w-6 h-6" /> },
             ].map((skill, i) => (
-              <div key={i} className="p-8 bg-section-primary border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group">
+              <div key={i} className="p-8 glass-effect border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group">
                 <div className="text-gold mb-4 group-hover:scale-110 transition-transform">{skill.icon}</div>
                 <h4 className="font-bold tracking-widest uppercase text-xs text-[#E5E7EB]">{skill.label}</h4>
               </div>
@@ -292,7 +293,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-10 bg-luxury-gray border border-white/5 rounded-3xl hover:bg-gold/5 hover:border-gold/20 transition-all group"
+              className="p-10 glass-effect border border-white/5 rounded-3xl hover:bg-gold/5 hover:border-gold/20 transition-all group"
             >
               <div className="text-gold mb-8 group-hover:translate-y-[-4px] transition-transform">{s.icon}</div>
               <h4 className="text-xl font-serif mb-4">{s.title}</h4>
@@ -415,7 +416,7 @@ const WhyChooseMe = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-12 bg-section-primary border border-gold/20 rounded-3xl relative"
+            className="p-12 glass-effect border border-gold/20 rounded-3xl relative"
           >
             <div className="absolute -top-4 -left-4 px-6 py-2 bg-gold text-black text-xs font-bold uppercase tracking-widest">
               Pricing Model
@@ -486,7 +487,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-section-primary p-10 rounded-3xl border border-white/5"
+            className="glass-effect p-10 rounded-3xl border border-white/5"
           >
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-2 gap-6">
@@ -523,7 +524,7 @@ const Contact = () => {
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors resize-none text-[#E5E7EB]"
                 />
               </div>
-              <button className="btn-primary w-full justify-center">
+              <button className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors w-full justify-center">
                 Send Message
                 <ChevronRight className="w-4 h-4" />
               </button>
