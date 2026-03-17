@@ -40,7 +40,7 @@ const Logo = ({ className = "" }: { className?: string }) => (
       <span className="font-serif text-xl font-bold text-gold tracking-tighter relative z-10">SS</span>
     </div>
     <div className="flex flex-col">
-      <span className="text-sm font-serif font-bold tracking-[0.1em] text-white group-hover:text-gold transition-colors">Sachidananda Sahoo</span>
+      <span className="text-sm font-serif font-bold tracking-[0.1em] text-[#E5E7EB] group-hover:text-gold transition-colors">Sachidananda Sahoo</span>
       <span className="text-[9px] uppercase tracking-[0.3em] text-gold-muted -mt-0.5">Web Designer</span>
     </div>
   </motion.a>
@@ -57,7 +57,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Logo />
 
@@ -70,7 +70,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-sm uppercase tracking-widest text-white/70 hover:text-gold transition-colors"
+              className="text-sm uppercase tracking-widest text-[#E5E7EB]/70 hover:text-gold transition-colors"
             >
               {link.name}
             </motion.a>
@@ -79,7 +79,7 @@ const Navbar = () => {
             href="#contact"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="px-6 py-2 border border-gold text-gold text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition-all duration-300"
+            className="btn-secondary"
           >
             Hire Me
           </motion.a>
@@ -106,7 +106,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-serif text-white/80 hover:text-gold"
+                  className="text-lg font-serif text-[#E5E7EB]/80 hover:text-gold"
                 >
                   {link.name}
                 </a>
@@ -143,20 +143,20 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-8">
             I Design <span className="inline-block px-4 py-2 bg-gold text-black -rotate-1 transform transition-transform hover:rotate-0">Bold & Luxury</span> Websites That Grow Your Business.
           </h1>
-          <p className="text-lg text-white/60 mb-10 max-w-lg leading-relaxed">
+          <p className="text-lg text-[#E5E7EB]/60 mb-10 max-w-lg leading-relaxed">
             Zero upfront payment. High-converting designs tailored for gyms, restaurants, and local businesses.
           </p>
           <div className="flex flex-wrap gap-6">
             <a 
               href="#portfolio" 
-              className="px-8 py-4 bg-gold text-black font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors flex items-center gap-2 group"
+              className="btn-primary group"
             >
               View My Work
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
               href="#contact" 
-              className="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-sm hover:border-gold hover:text-gold transition-colors"
+              className="btn-secondary"
             >
               Hire Me
             </a>
@@ -186,7 +186,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-gold font-bold">Based in</p>
-                  <p className="text-lg font-serif">Odisha, India</p>
+                  <p className="text-lg font-serif text-[#E5E7EB]">Odisha, India</p>
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@ const Hero = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-luxury-gray/30">
+    <section id="about" className="py-24 bg-section-alt">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -212,17 +212,17 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">The Designer</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+            <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight text-[#E5E7EB]">
               Crafting Digital Experiences with <span className="italic">Precision</span> & <span className="text-gold">Style</span>.
             </h3>
-            <div className="space-y-6 text-white/60 leading-relaxed text-lg">
+            <div className="space-y-6 text-[#E5E7EB]/60 leading-relaxed text-lg">
               <p>
                 I'm Sachidananda Sahoo, a freelance web designer dedicated to helping local and international businesses stand out with premium, high-converting websites.
               </p>
               <p>
                 Specializing in gyms, restaurants, and local businesses, I combine clean code (HTML, CSS, JavaScript) with bold aesthetics to create websites that don't just look good—they perform.
               </p>
-              <p className="text-white">
+              <p className="text-[#E5E7EB]">
                 My unique approach? <span className="text-gold font-bold">Zero upfront payment.</span> I believe in building trust through results.
               </p>
             </div>
@@ -240,9 +240,9 @@ const About = () => {
               { label: 'JavaScript', icon: <Zap className="w-6 h-6" /> },
               { label: 'Responsive', icon: <Smartphone className="w-6 h-6" /> },
             ].map((skill, i) => (
-              <div key={i} className="p-8 bg-luxury-gray border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group">
+              <div key={i} className="p-8 bg-section-primary border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group">
                 <div className="text-gold mb-4 group-hover:scale-110 transition-transform">{skill.icon}</div>
-                <h4 className="font-bold tracking-widest uppercase text-xs">{skill.label}</h4>
+                <h4 className="font-bold tracking-widest uppercase text-xs text-[#E5E7EB]">{skill.label}</h4>
               </div>
             ))}
           </motion.div>
@@ -296,7 +296,7 @@ const Services = () => {
             >
               <div className="text-gold mb-8 group-hover:translate-y-[-4px] transition-transform">{s.icon}</div>
               <h4 className="text-xl font-serif mb-4">{s.title}</h4>
-              <p className="text-white/50 text-sm leading-relaxed">{s.desc}</p>
+              <p className="text-[#E5E7EB]/50 text-sm leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -328,36 +328,26 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-luxury-gray/30">
+    <section id="portfolio" className="py-24 bg-section-alt">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8"
-        >
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Portfolio</h2>
-            <h3 className="text-4xl md:text-5xl font-serif">Selected Works</h3>
+            <h3 className="text-4xl md:text-5xl font-serif text-[#E5E7EB]">Selected Works</h3>
           </div>
-          <p className="text-white/50 max-w-sm">
+          <p className="text-[#E5E7EB]/50 max-w-sm">
             A glimpse into the bold and luxury digital experiences I've crafted for my clients.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-10">
           {projects.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.6, 
-                delay: i * 0.15,
-                ease: [0.215, 0.61, 0.355, 1]
-              }}
+              transition={{ delay: i * 0.1 }}
               className="group cursor-pointer"
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 border border-white/5">
@@ -374,8 +364,8 @@ const Portfolio = () => {
                 </div>
               </div>
               <p className="text-gold text-xs uppercase tracking-widest font-bold mb-2">{p.category}</p>
-              <h4 className="text-2xl font-serif mb-3 group-hover:text-gold transition-colors">{p.title}</h4>
-              <p className="text-white/50 text-sm leading-relaxed">{p.desc}</p>
+              <h4 className="text-2xl font-serif mb-3 group-hover:text-gold transition-colors text-[#E5E7EB]">{p.title}</h4>
+              <p className="text-[#E5E7EB]/50 text-sm leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -411,19 +401,12 @@ const WhyChooseMe = () => {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {reasons.map((reason, i) => (
-                <motion.div 
-                  key={i} 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="flex items-center gap-4"
-                >
+                <div key={i} className="flex items-center gap-4">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
-                  <span className="text-white/80 font-medium">{reason}</span>
-                </motion.div>
+                  <span className="text-[#E5E7EB]/80 font-medium">{reason}</span>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -432,18 +415,18 @@ const WhyChooseMe = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="p-12 bg-luxury-gray border border-gold/20 rounded-3xl relative"
+            className="p-12 bg-section-primary border border-gold/20 rounded-3xl relative"
           >
             <div className="absolute -top-4 -left-4 px-6 py-2 bg-gold text-black text-xs font-bold uppercase tracking-widest">
               Pricing Model
             </div>
-            <h4 className="text-3xl font-serif mb-6">Flexible & Creative Pricing</h4>
-            <p className="text-white/60 leading-relaxed mb-8">
+            <h4 className="text-3xl font-serif mb-6 text-[#E5E7EB]">Flexible & Creative Pricing</h4>
+            <p className="text-[#E5E7EB]/60 leading-relaxed mb-8">
               I don't believe in rigid, one-size-fits-all pricing. Every business is unique, and so is my approach to billing. We'll find a creative model that works for your budget and goals.
             </p>
             <div className="p-6 bg-white/5 rounded-xl border border-white/5">
               <p className="text-gold font-bold uppercase tracking-widest text-xs mb-2">The Commitment</p>
-              <p className="text-white italic">"I only get paid when you are 100% satisfied with the result. No risks, just results."</p>
+              <p className="text-[#E5E7EB] italic">"I only get paid when you are 100% satisfied with the result. No risks, just results."</p>
             </div>
           </motion.div>
         </div>
@@ -454,7 +437,7 @@ const WhyChooseMe = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-luxury-gray/30">
+    <section id="contact" className="py-24 bg-section-alt">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-20">
           <motion.div
@@ -463,19 +446,19 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">Get In Touch</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-8">Let's Build Something <span className="text-gold">Iconic</span>.</h3>
-            <p className="text-white/60 text-lg mb-12">
+            <h3 className="text-4xl md:text-5xl font-serif mb-8 text-[#E5E7EB]">Let's Build Something <span className="text-gold">Iconic</span>.</h3>
+            <p className="text-[#E5E7EB]/60 text-lg mb-12">
               Ready to elevate your business with a luxury digital presence? Reach out today for a free consultation.
             </p>
 
             <div className="space-y-8">
               <a href="mailto:sahoosachidananda25@gmail.com" className="flex items-center gap-6 group">
-                <div className="w-14 h-14 rounded-full bg-luxury-gray border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
+                <div className="w-14 h-14 rounded-full bg-section-primary border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-white/40 mb-1">Email Me</p>
-                  <p className="text-lg font-medium">sahoosachidananda25@gmail.com</p>
+                  <p className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 mb-1">Email Me</p>
+                  <p className="text-lg font-medium text-[#E5E7EB]">sahoosachidananda25@gmail.com</p>
                 </div>
               </a>
               
@@ -489,7 +472,7 @@ const Contact = () => {
                     href={social.href} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:border-gold hover:text-gold transition-all"
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-[#E5E7EB]/60 hover:border-gold hover:text-gold transition-all"
                     aria-label={social.label}
                   >
                     {social.icon}
@@ -503,44 +486,44 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-luxury-gray p-10 rounded-3xl border border-white/5"
+            className="bg-section-primary p-10 rounded-3xl border border-white/5"
           >
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Name</label>
+                  <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Name</label>
                   <input 
                     type="text" 
                     placeholder="John Doe"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors text-[#E5E7EB]"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Email</label>
+                  <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Email</label>
                   <input 
                     type="email" 
                     placeholder="john@example.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors text-[#E5E7EB]"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Subject</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors appearance-none">
-                  <option className="bg-luxury-gray">New Project</option>
-                  <option className="bg-luxury-gray">Website Redesign</option>
-                  <option className="bg-luxury-gray">Consultation</option>
+                <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Subject</label>
+                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors appearance-none text-[#E5E7EB]">
+                  <option className="bg-section-primary">New Project</option>
+                  <option className="bg-section-primary">Website Redesign</option>
+                  <option className="bg-section-primary">Consultation</option>
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/40 font-bold">Message</label>
+                <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Message</label>
                 <textarea 
                   rows={4}
                   placeholder="Tell me about your vision..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors resize-none text-[#E5E7EB]"
                 />
               </div>
-              <button className="w-full py-5 bg-gold text-black font-bold uppercase tracking-widest text-sm hover:bg-white transition-colors flex items-center justify-center gap-2">
+              <button className="btn-primary w-full justify-center">
                 Send Message
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -558,14 +541,14 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
         <Logo className="scale-90 origin-left" />
         
-        <p className="text-white/40 text-sm">
+        <p className="text-[#E5E7EB]/40 text-sm">
           &copy; {new Date().getFullYear()} Sachidananda Sahoo. All rights reserved.
         </p>
 
         <div className="flex gap-8">
-          <a href="#about" className="text-xs uppercase tracking-widest text-white/40 hover:text-gold transition-colors">About</a>
-          <a href="#portfolio" className="text-xs uppercase tracking-widest text-white/40 hover:text-gold transition-colors">Work</a>
-          <a href="#contact" className="text-xs uppercase tracking-widest text-white/40 hover:text-gold transition-colors">Contact</a>
+          <a href="#about" className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 hover:text-gold transition-colors">About</a>
+          <a href="#portfolio" className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 hover:text-gold transition-colors">Work</a>
+          <a href="#contact" className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 hover:text-gold transition-colors">Contact</a>
         </div>
       </div>
     </footer>

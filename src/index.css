@@ -7,14 +7,28 @@
   
   --color-gold: #D4AF37;
   --color-gold-muted: #BFA181;
-  --color-luxury-black: #0F0F0F;
-  --color-luxury-gray: #1A1A1A;
+  --color-luxury-black: #0B0F19;
+  --color-luxury-gray: #111827;
+  --color-section-alt: #0F172A;
+  --color-text-light: #E5E7EB;
 }
 
 @layer base {
   body {
-    @apply bg-luxury-black text-white font-sans selection:bg-gold selection:text-black;
+    @apply bg-[#0B0F19] text-[#E5E7EB] font-sans selection:bg-gold selection:text-black;
+    background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.105), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.07), transparent 50%),
+                linear-gradient(135deg, #0B0F19, #111827, #1E293B);
+    background-attachment: fixed;
   }
+}
+
+.bg-section-primary {
+  @apply bg-[#111827];
+}
+
+.bg-section-alt {
+  @apply bg-[#0F172A];
 }
 
 .text-gradient-gold {
