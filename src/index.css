@@ -14,6 +14,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-[#0B0F19] text-[#E5E7EB] font-sans selection:bg-gold selection:text-black;
     background: radial-gradient(circle at top right, rgba(250, 204, 21, 0.105), transparent 50%),

@@ -132,35 +132,44 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block text-gold uppercase tracking-[0.3em] text-xs mb-6 font-semibold"
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerVariants}
           >
-            Premium Web Design Services
-          </motion.span>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-8">
-            I Design <span className="inline-block px-4 py-2 bg-gold text-black -rotate-1 transform transition-transform hover:rotate-0">Bold & Luxury</span> Websites That Grow Your Business.
-          </h1>
-          <p className="text-lg text-[#E5E7EB]/60 mb-10 max-w-lg leading-relaxed">
-            Zero upfront payment. High-converting designs tailored for gyms, restaurants, and local businesses.
-          </p>
-          <div className="flex flex-wrap gap-6">
-            <a 
-              href="#portfolio" 
-                            className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors group"
+            <motion.span 
+              variants={sectionVariants}
+              className="inline-block text-gold uppercase tracking-[0.3em] text-xs mb-6 font-semibold"
             >
-              View My Work
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a 
-              href="#contact" 
-              className="border border-gold text-gold px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-black transition-colors"
-            >
-              Hire Me
-            </a>
-          </div>
+              Premium Web Design Services
+            </motion.span>
+            <motion.h1 variants={sectionVariants} className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-8">
+              I Design <span className="inline-block px-4 py-2 bg-gold text-black -rotate-1 transform transition-transform hover:rotate-0">Bold & Luxury</span> Websites That Grow Your Business.
+            </motion.h1>
+            <motion.p variants={sectionVariants} className="text-lg text-[#E5E7EB]/60 mb-10 max-w-lg leading-relaxed">
+              Zero upfront payment. High-converting designs tailored for gyms, restaurants, and local businesses.
+            </motion.p>
+            <motion.div variants={sectionVariants} className="flex flex-wrap gap-6">
+              <motion.a 
+                href="#portfolio" 
+                variants={buttonVariants}
+                whileHover="hover"
+                className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors group"
+              >
+                View My Work
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
+              <motion.a 
+                href="#contact" 
+                variants={buttonVariants}
+                whileHover="hover"
+                className="border border-gold text-gold px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-black transition-colors"
+              >
+                Hire Me
+              </motion.a>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -205,12 +214,16 @@ const Hero = () => {
 const About = () => {
   return (
     <section id="about" className="py-24 bg-section-alt">
-      <div className="max-w-7xl mx-auto px-6">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="max-w-7xl mx-auto px-6"
+      >
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            variants={sectionVariants}
           >
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">The Designer</h2>
             <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight text-[#E5E7EB]">
@@ -230,9 +243,7 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            variants={sectionVariants}
             className="grid grid-cols-2 gap-6"
           >
             {[
@@ -241,14 +252,19 @@ const About = () => {
               { label: 'JavaScript', icon: <Zap className="w-6 h-6" /> },
               { label: 'Responsive', icon: <Smartphone className="w-6 h-6" /> },
             ].map((skill, i) => (
-              <div key={i} className="p-8 glass-effect border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group">
+              <motion.div 
+                key={i}
+                variants={cardVariants}
+                whileHover="hover"
+                className="p-8 glass-effect border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group"
+              >
                 <div className="text-gold mb-4 group-hover:scale-110 transition-transform">{skill.icon}</div>
                 <h4 className="font-bold tracking-widest uppercase text-xs text-[#E5E7EB]">{skill.label}</h4>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -279,20 +295,24 @@ const Services = () => {
 
   return (
     <section id="services" className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="max-w-7xl mx-auto px-6"
+      >
+        <motion.div variants={sectionVariants} className="text-center mb-20">
           <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Services</h2>
           <h3 className="text-4xl md:text-5xl font-serif">What I Can Do For You</h3>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((s, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              variants={cardVariants}
+              whileHover="hover"
               className="p-10 glass-effect border border-white/5 rounded-3xl hover:bg-gold/5 hover:border-gold/20 transition-all group"
             >
               <div className="text-gold mb-8 group-hover:translate-y-[-4px] transition-transform">{s.icon}</div>
@@ -301,7 +321,7 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -330,8 +350,14 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-24 bg-section-alt">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="max-w-7xl mx-auto px-6"
+      >
+        <motion.div variants={sectionVariants} className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Portfolio</h2>
             <h3 className="text-4xl md:text-5xl font-serif text-[#E5E7EB]">Selected Works</h3>
@@ -339,23 +365,23 @@ const Portfolio = () => {
           <p className="text-[#E5E7EB]/50 max-w-sm">
             A glimpse into the bold and luxury digital experiences I've crafted for my clients.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-10">
           {projects.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              variants={cardVariants}
+              whileHover="hover"
               className="group cursor-pointer"
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 border border-white/5">
-                <img 
+                <motion.img 
+                  variants={imageVariants}
+                  whileHover="hover"
                   src={p.img} 
                   alt={p.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -370,7 +396,7 @@ const Portfolio = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -389,33 +415,38 @@ const WhyChooseMe = () => {
     <section className="py-24 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gold/5 -skew-x-12 translate-x-1/4" />
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="max-w-7xl mx-auto px-6 relative z-10"
+      >
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div variants={sectionVariants}>
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">The Advantage</h2>
             <h3 className="text-4xl md:text-5xl font-serif mb-10 leading-tight">
               Why Work With <span className="text-gradient-gold italic">Me?</span>
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {reasons.map((reason, i) => (
-                <div key={i} className="flex items-center gap-4">
+                <motion.div 
+                  key={i}
+                  variants={cardVariants}
+                  whileHover="hover"
+                  className="flex items-center gap-4 p-6 glass-effect border border-white/5 rounded-xl"
+                >
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span className="text-[#E5E7EB]/80 font-medium">{reason}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            variants={sectionVariants}
             className="p-12 glass-effect border border-gold/20 rounded-3xl relative"
           >
             <div className="absolute -top-4 -left-4 px-6 py-2 bg-gold text-black text-xs font-bold uppercase tracking-widest">
@@ -431,7 +462,7 @@ const WhyChooseMe = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -439,13 +470,15 @@ const WhyChooseMe = () => {
 const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-section-alt">
-      <div className="max-w-7xl mx-auto px-6">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="max-w-7xl mx-auto px-6"
+      >
         <div className="grid md:grid-cols-2 gap-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div variants={sectionVariants}>
             <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">Get In Touch</h2>
             <h3 className="text-4xl md:text-5xl font-serif mb-8 text-[#E5E7EB]">Let's Build Something <span className="text-gold">Iconic</span>.</h3>
             <p className="text-[#E5E7EB]/60 text-lg mb-12">
@@ -453,7 +486,12 @@ const Contact = () => {
             </p>
 
             <div className="space-y-8">
-              <a href="mailto:sahoosachidananda25@gmail.com" className="flex items-center gap-6 group">
+              <motion.a 
+                variants={cardVariants}
+                whileHover="hover"
+                href="mailto:sahoosachidananda25@gmail.com" 
+                className="flex items-center gap-6 group"
+              >
                 <div className="w-14 h-14 rounded-full bg-section-primary border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
                   <Mail className="w-6 h-6" />
                 </div>
@@ -461,15 +499,17 @@ const Contact = () => {
                   <p className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 mb-1">Email Me</p>
                   <p className="text-lg font-medium text-[#E5E7EB]">sahoosachidananda25@gmail.com</p>
                 </div>
-              </a>
+              </motion.a>
               
               <div className="flex gap-6">
                 {[
                   { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/_sachidananda/', label: 'Instagram' },
                   { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/sachidanandasahoo/', label: 'LinkedIn' },
                 ].map((social, i) => (
-                  <a 
+                  <motion.a 
                     key={i}
+                    variants={buttonVariants}
+                    whileHover="hover"
                     href={social.href} 
                     target="_blank"
                     rel="noopener noreferrer"
@@ -477,16 +517,14 @@ const Contact = () => {
                     aria-label={social.label}
                   >
                     {social.icon}
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            variants={sectionVariants}
             className="glass-effect p-10 rounded-3xl border border-white/5"
           >
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
@@ -524,14 +562,18 @@ const Contact = () => {
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors resize-none text-[#E5E7EB]"
                 />
               </div>
-              <button className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors w-full justify-center">
+              <motion.button 
+                variants={buttonVariants}
+                whileHover="hover"
+                className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors w-full justify-center"
+              >
                 Send Message
                 <ChevronRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             </form>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -554,6 +596,31 @@ const Footer = () => {
       </div>
     </footer>
   );
+};
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" } 
+  }
+};
+
+const staggerVariants = {
+  visible: { transition: { staggerChildren: 0.2 } }
+};
+
+const buttonVariants = {
+  hover: { scale: 1.05, boxShadow: "0 0 15px rgba(250, 204, 21, 0.5)" }
+};
+
+const cardVariants = {
+  hover: { y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.2)" }
+};
+
+const imageVariants = {
+  hover: { scale: 1.03 }
 };
 
 export default function App() {
