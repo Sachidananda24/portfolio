@@ -149,30 +149,30 @@ const Hero = () => {
               variants={sectionVariants}
               className="inline-block text-gold uppercase tracking-[0.4em] text-sm mb-8 font-bold"
             >
-              Premium Web Design Agency
+              Results-Driven Web Design
             </motion.span>
             <motion.h1 variants={sectionVariants} className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[0.95] mb-12 tracking-tighter text-text-primary">
-              I Design <span className="text-gold italic">Bold & Luxury</span> Websites.
+              I Design Modern Websites That <span className="text-gold italic">Help Businesses Grow.</span>
             </motion.h1>
             <motion.p variants={sectionVariants} className="text-xl md:text-2xl text-text-secondary mb-14 max-w-xl leading-relaxed font-light">
-              Zero upfront payment. High-converting digital experiences tailored for elite businesses.
+              Fast, responsive, and conversion-focused designs with no upfront cost. Let's build your digital storefront.
             </motion.p>
             <motion.div variants={sectionVariants} className="flex flex-wrap gap-4">
-              <motion.a 
-                href="#portfolio" 
-                variants={buttonVariants}
-                whileHover="hover"
-                className="bg-gold text-black px-8 py-3 rounded-lg font-bold text-lg transition-all shadow-lg shadow-gold/10"
-              >
-                View My Work
-              </motion.a>
               <motion.a 
                 href="#contact" 
                 variants={buttonVariants}
                 whileHover="hover"
+                className="bg-gold text-black px-8 py-3 rounded-lg font-bold text-lg transition-all shadow-lg shadow-gold/10"
+              >
+                Start Your Project
+              </motion.a>
+              <motion.a 
+                href="#portfolio" 
+                variants={buttonVariants}
+                whileHover="hover"
                 className="border border-gold text-gold px-10 py-3 rounded-lg font-bold text-lg hover:bg-gold hover:text-black transition-all"
               >
-                Hire Me
+                View My Work
               </motion.a>
             </motion.div>
           </motion.div>
@@ -236,17 +236,17 @@ const About = () => {
           >
             <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold mb-8 opacity-80">About</h2>
             <h3 className="text-3xl md:text-4xl font-serif mb-10 leading-tight text-text-primary">
-              Crafting Digital Experiences with <span className="italic">Precision</span> & <span className="text-gold">Style</span>.
+              Your Partner in Digital Growth
             </h3>
             <div className="space-y-8 text-text-secondary leading-relaxed text-lg font-light">
               <p>
-                I'm Sachidananda Sahoo, a freelance web designer dedicated to helping local and international businesses stand out with premium, high-converting websites.
+                I help local and international businesses turn visitors into loyal customers with high-performance, conversion-focused websites.
               </p>
               <p>
-                Specializing in gyms, restaurants, and local businesses, I combine clean code (HTML, CSS, JavaScript) with bold aesthetics to create websites that don't just look good—they perform.
+                Whether you're a gym, restaurant, or service provider, I combine modern UI design with clean code to ensure your business thrives online.
               </p>
               <p className="text-text-primary">
-                My unique approach? <span className="text-gold font-bold">Zero upfront payment.</span> I believe in building trust through results.
+                My commitment: <span className="text-gold font-bold">Fast delivery, mobile optimization, and no upfront cost.</span>
               </p>
             </div>
           </motion.div>
@@ -283,23 +283,23 @@ const About = () => {
 const Services = () => {
   const services = [
     {
-      title: 'Landing Page Design',
-      desc: 'High-converting single-page websites designed to turn visitors into customers.',
+      title: 'High-Converting Landing Pages',
+      desc: 'Designed strategically to turn your visitors into paying customers.',
       icon: <Layout className="w-8 h-8" />
     },
     {
-      title: 'Website Redesign',
-      desc: 'Transform your outdated site into a modern, luxury digital storefront.',
+      title: 'Modern Website Redesigns',
+      desc: 'Transform your outdated site into a high-performance digital asset.',
       icon: <Zap className="w-8 h-8" />
     },
     {
       title: 'Custom Business Websites',
-      desc: 'Tailored solutions for gyms, restaurants, and local service providers.',
+      desc: 'Tailored solutions for gyms, restaurants, and service providers.',
       icon: <Code className="w-8 h-8" />
     },
     {
-      title: 'Conversion-Focused Design',
-      desc: 'Strategic layouts and copy designed to maximize your business growth.',
+      title: 'Strategic Design & Copy',
+      desc: 'Layouts and content built to maximize your business revenue.',
       icon: <ArrowRight className="w-8 h-8" />
     }
   ];
@@ -345,19 +345,19 @@ const Portfolio = () => {
     {
       title: 'Luxury Gym Website',
       category: 'Fitness & Wellness',
-      desc: 'A bold, dark-themed website for a premium fitness club with integrated booking.',
+      desc: 'Premium fitness club site. Solved the problem of low online sign-ups with a bold, integrated booking experience.',
       img: 'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800'
     },
     {
       title: 'Modern Restaurant',
       category: 'Hospitality',
-      desc: 'Elegant digital menu and reservation system for a high-end dining experience.',
+      desc: 'High-end hospitality site. Solved the problem of manual reservations with an elegant, automated booking system.',
       img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=800'
     },
     {
       title: 'Business Landing Page',
       category: 'Corporate',
-      desc: 'Conversion-optimized landing page for a local service provider.',
+      desc: 'Service provider landing page. Solved low lead generation with a conversion-optimized design.',
       img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
     }
   ];
@@ -420,12 +420,10 @@ const Portfolio = () => {
 
 const WhyChooseMe = () => {
   const reasons = [
-    'Zero Upfront Payment',
-    'Creative & Flexible Pricing',
-    'Bold Luxury Design',
-    'Clean Code (HTML/CSS/JS)',
-    'Direct Communication',
-    'Conversion Focused'
+    'Fast Delivery: Get your business online quickly.',
+    'Clean Modern Design: Build instant credibility.',
+    'Easy Communication: No technical jargon.',
+    'Client-Focused: Your goals are my priority.'
   ];
 
   return (
@@ -599,11 +597,11 @@ const Contact = () => {
               </div>
 
               <h3 className="text-4xl md:text-5xl font-serif leading-tight text-text-primary">
-                Let's build something <span className="text-gold italic">impactful</span> together.
+                Have a project in mind? <span className="text-gold italic">Let's talk.</span>
               </h3>
               
               <p className="text-text-secondary text-lg font-light leading-relaxed max-w-md">
-                I'm currently accepting new projects and collaborations. Whether you have a fully-formed idea or just a spark, I'm here to help you bring it to life.
+                Ready to elevate your business with a high-performance digital presence? Reach out today for a free consultation.
               </p>
             </div>
 
