@@ -19,7 +19,8 @@ import {
   Mail, 
   MapPin,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  Quote
 } from 'lucide-react';
 
 const Logo = ({ className = "" }: { className?: string }) => (
@@ -57,7 +58,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-white/5">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-bg-deep/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Logo />
 
@@ -70,7 +71,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-sm uppercase tracking-widest text-[#E5E7EB]/70 hover:text-gold transition-colors"
+              className="text-sm uppercase tracking-widest text-text-secondary hover:text-gold transition-colors"
             >
               {link.name}
             </motion.a>
@@ -98,7 +99,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-luxury-gray border-b border-white/5 overflow-hidden"
+            className="md:hidden bg-bg-secondary border-b border-white/5 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-6">
               {navLinks.map((link) => (
@@ -121,12 +122,18 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <>
+    <section className="relative min-h-screen flex items-center pt-32 pb-20 md:pt-40 md:pb-32 hero-glow overflow-hidden">
       {/* Background Accents */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-gold/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gold/5 rounded-full blur-[120px]" />
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-gold/15 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gold/10 rounded-full blur-[120px]" />
+      
+      {/* Large Decorative Logo */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none overflow-hidden -z-10 opacity-[0.02]">
+        <span className="text-[40vw] font-serif font-bold text-gold leading-none">SS</span>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -140,31 +147,30 @@ const Hero = () => {
           >
             <motion.span 
               variants={sectionVariants}
-              className="inline-block text-gold uppercase tracking-[0.3em] text-xs mb-6 font-semibold"
+              className="inline-block text-gold uppercase tracking-[0.4em] text-sm mb-8 font-bold"
             >
-              Premium Web Design Services
+              Premium Web Design Agency
             </motion.span>
-            <motion.h1 variants={sectionVariants} className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-8">
-              I Design <span className="inline-block px-4 py-2 bg-gold text-black -rotate-1 transform transition-transform hover:rotate-0">Bold & Luxury</span> Websites That Grow Your Business.
+            <motion.h1 variants={sectionVariants} className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[0.95] mb-12 tracking-tighter text-text-primary">
+              I Design <span className="text-gold italic">Bold & Luxury</span> Websites.
             </motion.h1>
-            <motion.p variants={sectionVariants} className="text-lg text-[#E5E7EB]/60 mb-10 max-w-lg leading-relaxed">
-              Zero upfront payment. High-converting designs tailored for gyms, restaurants, and local businesses.
+            <motion.p variants={sectionVariants} className="text-xl md:text-2xl text-text-secondary mb-14 max-w-xl leading-relaxed font-light">
+              Zero upfront payment. High-converting digital experiences tailored for elite businesses.
             </motion.p>
-            <motion.div variants={sectionVariants} className="flex flex-wrap gap-6">
+            <motion.div variants={sectionVariants} className="flex flex-wrap gap-4">
               <motion.a 
                 href="#portfolio" 
                 variants={buttonVariants}
                 whileHover="hover"
-                className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors group"
+                className="bg-gold text-black px-8 py-3 rounded-lg font-bold text-lg transition-all shadow-lg shadow-gold/10"
               >
                 View My Work
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.a>
               <motion.a 
                 href="#contact" 
                 variants={buttonVariants}
                 whileHover="hover"
-                className="border border-gold text-gold px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-black transition-colors"
+                className="border border-gold text-gold px-10 py-3 rounded-lg font-bold text-lg hover:bg-gold hover:text-black transition-all"
               >
                 Hire Me
               </motion.a>
@@ -186,10 +192,10 @@ const Hero = () => {
               className="w-full h-full object-cover transition-all duration-700"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent opacity-60" />
             
             {/* Floating Badge */}
-            <div className="absolute bottom-8 left-8 right-8 p-6 bg-luxury-gray/80 backdrop-blur-md border border-white/10 rounded-xl">
+            <div className="absolute bottom-8 left-8 right-8 p-6 bg-bg-card/80 backdrop-blur-md border border-white/10 rounded-xl">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-gold">
                   <MapPin className="w-6 h-6" />
@@ -208,12 +214,15 @@ const Hero = () => {
         </motion.div>
       </div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-section-alt">
+    <>
+    <section id="about" className="section-spacing section-glow-blue">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -221,22 +230,22 @@ const About = () => {
         variants={staggerVariants}
         className="max-w-7xl mx-auto px-6"
       >
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-24 items-center">
           <motion.div
             variants={sectionVariants}
           >
-            <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">The Designer</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-8 leading-tight text-[#E5E7EB]">
+            <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold mb-8 opacity-80">About</h2>
+            <h3 className="text-3xl md:text-4xl font-serif mb-10 leading-tight text-text-primary">
               Crafting Digital Experiences with <span className="italic">Precision</span> & <span className="text-gold">Style</span>.
             </h3>
-            <div className="space-y-6 text-[#E5E7EB]/60 leading-relaxed text-lg">
+            <div className="space-y-8 text-text-secondary leading-relaxed text-lg font-light">
               <p>
                 I'm Sachidananda Sahoo, a freelance web designer dedicated to helping local and international businesses stand out with premium, high-converting websites.
               </p>
               <p>
                 Specializing in gyms, restaurants, and local businesses, I combine clean code (HTML, CSS, JavaScript) with bold aesthetics to create websites that don't just look good—they perform.
               </p>
-              <p className="text-[#E5E7EB]">
+              <p className="text-text-primary">
                 My unique approach? <span className="text-gold font-bold">Zero upfront payment.</span> I believe in building trust through results.
               </p>
             </div>
@@ -256,16 +265,18 @@ const About = () => {
                 key={i}
                 variants={cardVariants}
                 whileHover="hover"
-                className="p-8 glass-effect border border-white/5 rounded-2xl hover:border-gold/30 transition-colors group"
+                className="p-8 luxury-card group"
               >
                 <div className="text-gold mb-4 group-hover:scale-110 transition-transform">{skill.icon}</div>
-                <h4 className="font-bold tracking-widest uppercase text-xs text-[#E5E7EB]">{skill.label}</h4>
+                <h4 className="font-bold tracking-widest uppercase text-xs text-text-primary">{skill.label}</h4>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </motion.div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
@@ -274,27 +285,28 @@ const Services = () => {
     {
       title: 'Landing Page Design',
       desc: 'High-converting single-page websites designed to turn visitors into customers.',
-      icon: <Layout className="w-10 h-10" />
+      icon: <Layout className="w-8 h-8" />
     },
     {
       title: 'Website Redesign',
       desc: 'Transform your outdated site into a modern, luxury digital storefront.',
-      icon: <Zap className="w-10 h-10" />
+      icon: <Zap className="w-8 h-8" />
     },
     {
       title: 'Custom Business Websites',
       desc: 'Tailored solutions for gyms, restaurants, and local service providers.',
-      icon: <Code className="w-10 h-10" />
+      icon: <Code className="w-8 h-8" />
     },
     {
       title: 'Conversion-Focused Design',
       desc: 'Strategic layouts and copy designed to maximize your business growth.',
-      icon: <ArrowRight className="w-10 h-10" />
+      icon: <ArrowRight className="w-8 h-8" />
     }
   ];
 
   return (
-    <section id="services" className="py-24">
+    <>
+    <section id="services" className="section-spacing section-glow-purple">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -302,9 +314,9 @@ const Services = () => {
         variants={staggerVariants}
         className="max-w-7xl mx-auto px-6"
       >
-        <motion.div variants={sectionVariants} className="text-center mb-20">
-          <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Services</h2>
-          <h3 className="text-4xl md:text-5xl font-serif">What I Can Do For You</h3>
+        <motion.div variants={sectionVariants} className="text-center mb-24">
+          <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold mb-6 opacity-80">Services</h2>
+          <h3 className="text-3xl md:text-4xl font-serif text-text-primary">What I Can Do For You</h3>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -313,16 +325,18 @@ const Services = () => {
               key={i}
               variants={cardVariants}
               whileHover="hover"
-              className="p-10 glass-effect border border-white/5 rounded-3xl hover:bg-gold/5 hover:border-gold/20 transition-all group"
+              className="p-10 luxury-card group"
             >
               <div className="text-gold mb-8 group-hover:translate-y-[-4px] transition-transform">{s.icon}</div>
-              <h4 className="text-xl font-serif mb-4">{s.title}</h4>
-              <p className="text-[#E5E7EB]/50 text-sm leading-relaxed">{s.desc}</p>
+              <h4 className="text-xl font-serif mb-4 text-text-primary">{s.title}</h4>
+              <p className="text-text-muted text-sm leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
@@ -349,7 +363,8 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-section-alt">
+    <>
+    <section id="portfolio" className="section-spacing bg-bg-primary">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -357,12 +372,12 @@ const Portfolio = () => {
         variants={staggerVariants}
         className="max-w-7xl mx-auto px-6"
       >
-        <motion.div variants={sectionVariants} className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <motion.div variants={sectionVariants} className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12">
           <div>
-            <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Portfolio</h2>
-            <h3 className="text-4xl md:text-5xl font-serif text-[#E5E7EB]">Selected Works</h3>
+            <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold mb-6 opacity-80">Portfolio</h2>
+            <h3 className="text-3xl md:text-4xl font-serif text-text-primary">Selected Works</h3>
           </div>
-          <p className="text-[#E5E7EB]/50 max-w-sm">
+          <p className="text-text-muted max-w-sm font-light">
             A glimpse into the bold and luxury digital experiences I've crafted for my clients.
           </p>
         </motion.div>
@@ -391,13 +406,15 @@ const Portfolio = () => {
                 </div>
               </div>
               <p className="text-gold text-xs uppercase tracking-widest font-bold mb-2">{p.category}</p>
-              <h4 className="text-2xl font-serif mb-3 group-hover:text-gold transition-colors text-[#E5E7EB]">{p.title}</h4>
-              <p className="text-[#E5E7EB]/50 text-sm leading-relaxed">{p.desc}</p>
+              <h4 className="text-2xl font-serif mb-3 group-hover:text-gold transition-colors text-text-primary">{p.title}</h4>
+              <p className="text-text-muted text-sm leading-relaxed">{p.desc}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
@@ -412,7 +429,8 @@ const WhyChooseMe = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <>
+    <section className="section-spacing relative overflow-hidden bg-bg-secondary">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gold/5 -skew-x-12 translate-x-1/4" />
       
       <motion.div 
@@ -422,24 +440,24 @@ const WhyChooseMe = () => {
         variants={staggerVariants}
         className="max-w-7xl mx-auto px-6 relative z-10"
       >
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-24 items-center">
           <motion.div variants={sectionVariants}>
-            <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">The Advantage</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-10 leading-tight">
+            <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold mb-8 opacity-80">Advantage</h2>
+            <h3 className="text-3xl md:text-4xl font-serif mb-12 leading-tight text-text-primary">
               Why Work With <span className="text-gradient-gold italic">Me?</span>
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {reasons.map((reason, i) => (
                 <motion.div 
                   key={i}
                   variants={cardVariants}
                   whileHover="hover"
-                  className="flex items-center gap-4 p-6 glass-effect border border-white/5 rounded-xl"
+                  className="flex items-center gap-4 p-6 luxury-card"
                 >
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
-                  <span className="text-[#E5E7EB]/80 font-medium">{reason}</span>
+                  <span className="text-text-secondary font-medium">{reason}</span>
                 </motion.div>
               ))}
             </div>
@@ -447,47 +465,53 @@ const WhyChooseMe = () => {
 
           <motion.div
             variants={sectionVariants}
-            className="p-12 glass-effect border border-gold/20 rounded-3xl relative"
+            className="p-12 luxury-card relative border-gold/20"
           >
             <div className="absolute -top-4 -left-4 px-6 py-2 bg-gold text-black text-xs font-bold uppercase tracking-widest">
               Pricing Model
             </div>
-            <h4 className="text-3xl font-serif mb-6 text-[#E5E7EB]">Flexible & Creative Pricing</h4>
-            <p className="text-[#E5E7EB]/60 leading-relaxed mb-8">
+            <h4 className="text-3xl font-serif mb-6 text-text-primary">Flexible & Creative Pricing</h4>
+            <p className="text-text-muted leading-relaxed mb-8">
               I don't believe in rigid, one-size-fits-all pricing. Every business is unique, and so is my approach to billing. We'll find a creative model that works for your budget and goals.
             </p>
             <div className="p-6 bg-white/5 rounded-xl border border-white/5">
               <p className="text-gold font-bold uppercase tracking-widest text-xs mb-2">The Commitment</p>
-              <p className="text-[#E5E7EB] italic">"I only get paid when you are 100% satisfied with the result. No risks, just results."</p>
+              <p className="text-text-primary italic">"I only get paid when you are 100% satisfied with the result. No risks, just results."</p>
             </div>
           </motion.div>
         </div>
       </motion.div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
 const Testimonials = () => {
   const testimonials = [
     {
+      name: "Alex Rivera",
+      role: "Gym Owner",
+      text: "Sachidananda transformed our online presence. The new site is fast, bold, and our member sign-ups have increased by 40% since launch.",
+      avatar: "AR"
+    },
+    {
       name: "Sarah Jenkins",
-      role: "Startup Founder",
-      feedback: "Sachidananda transformed our online presence. The new design is not only stunning but has significantly increased our conversion rates. Highly recommended!"
+      role: "Restaurant Founder",
+      text: "The luxury feel of our website now matches our dining experience perfectly. Professional, responsive, and very easy to work with.",
+      avatar: "SJ"
     },
     {
-      name: "Marcus Chen",
-      role: "Business Owner",
-      feedback: "Working with him was a breeze. He understood our vision perfectly and delivered a website that truly captures the essence of our brand."
-    },
-    {
-      name: "Elena Rodriguez",
-      role: "Fitness Coach",
-      feedback: "The zero upfront payment model showed his confidence, and the final result exceeded all expectations. My bookings have doubled since launch."
+      name: "David Chen",
+      role: "Tech Startup CEO",
+      text: "Incredible attention to detail. He understood our vision immediately and delivered a high-converting landing page ahead of schedule.",
+      avatar: "DC"
     }
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-section-alt">
+    <>
+    <section id="testimonials" className="section-spacing section-glow-blue">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -495,160 +519,237 @@ const Testimonials = () => {
         variants={staggerVariants}
         className="max-w-7xl mx-auto px-6"
       >
-        <motion.div variants={sectionVariants} className="text-center mb-16">
-          <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Testimonials</h2>
-          <h3 className="text-4xl md:text-5xl font-serif mb-4 text-[#E5E7EB]">What Clients Say</h3>
-          <p className="text-[#E5E7EB]/60 text-lg max-w-2xl mx-auto">
-            Feedback from people I’ve worked with
-          </p>
+        <motion.div variants={sectionVariants} className="text-center mb-24">
+          <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold mb-6 opacity-80">Testimonials</h2>
+          <h3 className="text-3xl md:text-4xl font-serif text-text-primary mb-4">What Clients Say</h3>
+          <p className="text-text-muted max-w-md mx-auto font-light">Feedback from people I’ve worked with</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              variants={sectionVariants}
-              className="bg-[#111827] border border-white/10 rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-[5px] transition-transform duration-300"
+              variants={cardVariants}
+              whileHover="hover"
+              className="luxury-card p-8 flex flex-col relative group"
             >
-              <p className="text-[#E5E7EB] leading-relaxed mb-6">"{t.feedback}"</p>
-              <div>
-                <p className="text-[#E5E7EB] font-bold tracking-wider text-base">{t.name}</p>
-                <p className="text-[#E5E7EB]/50 text-xs uppercase tracking-widest mt-1">{t.role}</p>
+              <Quote className="absolute top-6 right-8 w-8 h-8 text-gold/10 group-hover:text-gold/20 transition-colors" />
+              
+              <p className="text-text-secondary leading-relaxed mb-8 italic relative z-10">
+                "{t.text}"
+              </p>
+
+              <div className="mt-auto flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-bg-deep border border-white/10 flex items-center justify-center text-gold font-bold text-sm">
+                  {t.avatar}
+                </div>
+                <div>
+                  <h4 className="font-bold text-text-primary">{t.name}</h4>
+                  <p className="text-xs text-text-muted uppercase tracking-widest">{t.role}</p>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </motion.div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
-const SocialIcon = ({ icon: Icon, href, label, brandColorClass, tooltip }: { icon: any, href: string, label: string, brandColorClass: string, tooltip: string }) => (
-  <div className="relative group">
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      variants={socialIconVariants}
-      whileHover="hover"
-      className="w-14 h-14 rounded-full glass-effect border border-white/10 flex items-center justify-center text-[#E5E7EB]/60 transition-all duration-500 relative shadow-lg hover:border-gold/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]"
-      aria-label={label}
-    >
-      <Icon className={`w-6 h-6 transition-all duration-300 ${brandColorClass}`} />
-      
-      {/* Inner Glow Effect */}
-      <div className="absolute inset-0 rounded-full bg-gold/0 group-hover:bg-gold/5 transition-colors duration-300" />
-    </motion.a>
-    
-    {/* Tooltip */}
-    <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gold text-black text-[10px] font-bold uppercase tracking-widest rounded shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-2 group-hover:translate-y-0">
-      {tooltip}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-gold" />
-    </div>
-  </div>
-);
-
 const Contact = () => {
   return (
-    <section id="contact" className="py-24">
+    <>
+    <section id="contact" className="section-spacing bg-bg-secondary relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-gold/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] translate-y-1/2 translate-x-1/2" />
+
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={staggerVariants}
-        className="max-w-7xl mx-auto px-6"
+        className="max-w-7xl mx-auto px-6 relative z-10"
       >
-        <div className="grid md:grid-cols-2 gap-20">
-          <motion.div variants={sectionVariants}>
-            <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-6">Get In Touch</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-8 text-[#E5E7EB]">Let's Build Something <span className="text-gold">Iconic</span>.</h3>
-            <p className="text-[#E5E7EB]/60 text-lg mb-12">
-              Ready to elevate your business with a luxury digital presence? Reach out today for a free consultation.
-            </p>
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Left Side: Branding & Info */}
+          <motion.div variants={sectionVariants} className="space-y-12">
+            <div className="space-y-8">
+              <div className="flex items-center gap-6">
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-tr from-gold to-blue-500 rounded-full blur-sm opacity-50" />
+                  <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-white/10 relative">
+                    <img 
+                      src="https://lh3.googleusercontent.com/pw/AP1GczMQuSKhvu1QHdrSMhQIE8QOUfTQbz8kvXnmRDAH6Alf1pwYlPnV5qz95aWIcHB1wxYDyw4N46uqnfWRyJpfaBauE_5M9SasIxLgmc3fovroTxkxtnRq_bObad3HXAqeWeK4E2z2Bal3pgLOgv_4g-w_=w609-h913-s-no-gm?authuser=0" 
+                      alt="Sachidananda Sahoo" 
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20">
+                    <div className="w-2 h-2 rounded-full bg-green-500 pulse-green" />
+                    <span className="text-[10px] uppercase tracking-widest text-green-500 font-bold">Available for freelance work</span>
+                  </div>
+                  <h2 className="text-xs uppercase tracking-[0.6em] text-gold font-bold opacity-80">Contact</h2>
+                </div>
+              </div>
 
-            <motion.div 
-              variants={staggerVariants}
-              className="flex flex-wrap gap-6 mt-8"
-            >
-              {[
-                { icon: Linkedin, href: 'https://www.linkedin.com/in/sachidanandasahoo/', label: 'LinkedIn', color: 'group-hover:text-[#0077B5] group-hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.5)]', tooltip: 'Connect on LinkedIn' },
-                { icon: Instagram, href: 'https://www.instagram.com/_sachidananda/', label: 'Instagram', color: 'group-hover:text-[#E4405F] group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.5)]', tooltip: 'Follow on Instagram' },
-                { icon: Mail, href: 'mailto:sahoosachidananda25@gmail.com', label: 'Email', color: 'group-hover:text-[#EA4335] group-hover:drop-shadow-[0_0_8px_rgba(234,67,53,0.5)]', tooltip: 'Send an Email' },
-              ].map((social, i) => (
-                <SocialIcon key={i} {...social} brandColorClass={social.color} />
-              ))}
-            </motion.div>
+              <h3 className="text-4xl md:text-5xl font-serif leading-tight text-text-primary">
+                Let's build something <span className="text-gold italic">impactful</span> together.
+              </h3>
+              
+              <p className="text-text-secondary text-lg font-light leading-relaxed max-w-md">
+                I'm currently accepting new projects and collaborations. Whether you have a fully-formed idea or just a spark, I'm here to help you bring it to life.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <motion.a 
+                whileHover={{ y: -5 }}
+                href="mailto:sahoosachidananda25@gmail.com" 
+                className="block mt-10 p-8 bg-bg-card/40 backdrop-blur-sm border border-white/5 rounded-2xl group hover:border-gold/30 transition-all"
+              >
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted mb-1 font-bold">Direct Email</p>
+                    <p className="text-xl font-medium text-text-primary group-hover:text-gold transition-colors">sahoosachidananda25@gmail.com</p>
+                  </div>
+                </div>
+              </motion.a>
+
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/_sachidananda/', label: 'Instagram' },
+                  { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/sachidanandasahoo/', label: 'LinkedIn' },
+                ].map((social, i) => (
+                  <motion.a 
+                    key={i}
+                    whileHover={{ y: -3, boxShadow: "0 0 20px rgba(212, 175, 55, 0.15)" }}
+                    href={social.href} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 py-4 rounded-xl bg-bg-card/40 border border-white/5 text-text-secondary hover:text-gold hover:border-gold/30 transition-all font-bold text-sm tracking-widest uppercase"
+                  >
+                    {social.icon}
+                    <span>{social.label}</span>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
+          {/* Right Side: Contact Form */}
           <motion.div
             variants={sectionVariants}
-            className="glass-effect p-10 rounded-3xl border border-white/5"
+            className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Name</label>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold/10 rounded-full blur-[60px] -z-10" />
+            
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div className="relative group">
                   <input 
                     type="text" 
-                    placeholder="John Doe"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors text-[#E5E7EB]"
+                    id="name"
+                    placeholder=" "
+                    className="peer w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 pt-7 focus:outline-none focus:border-gold focus:bg-white/10 transition-all text-text-primary placeholder-transparent"
                   />
+                  <label 
+                    htmlFor="name"
+                    className="absolute left-6 top-2 text-[10px] text-gold uppercase tracking-widest font-bold transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-text-muted peer-placeholder-shown:font-normal peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold peer-focus:font-bold"
+                  >
+                    Your Name
+                  </label>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Email</label>
+                <div className="relative group">
                   <input 
                     type="email" 
-                    placeholder="john@example.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors text-[#E5E7EB]"
+                    id="email"
+                    placeholder=" "
+                    className="peer w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 pt-7 focus:outline-none focus:border-gold focus:bg-white/10 transition-all text-text-primary placeholder-transparent"
                   />
+                  <label 
+                    htmlFor="email"
+                    className="absolute left-6 top-2 text-[10px] text-gold uppercase tracking-widest font-bold transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-text-muted peer-placeholder-shown:font-normal peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold peer-focus:font-bold"
+                  >
+                    Email Address
+                  </label>
                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Subject</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors appearance-none text-[#E5E7EB]">
-                  <option className="bg-section-primary">New Project</option>
-                  <option className="bg-section-primary">Website Redesign</option>
-                  <option className="bg-section-primary">Consultation</option>
+
+              <div className="relative group">
+                <select 
+                  id="subject"
+                  className="peer w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 pt-7 focus:outline-none focus:border-gold focus:bg-white/10 transition-all text-text-primary appearance-none"
+                >
+                  <option className="bg-bg-card">New Project Inquiry</option>
+                  <option className="bg-bg-card">Website Redesign</option>
+                  <option className="bg-bg-card">Consultation Call</option>
+                  <option className="bg-bg-card">Other</option>
                 </select>
+                <label 
+                  htmlFor="subject"
+                  className="absolute left-6 top-2 text-[10px] text-gold uppercase tracking-widest font-bold"
+                >
+                  What are you looking for?
+                </label>
+                <ChevronRight className="absolute right-6 top-1/2 -translate-y-1/2 rotate-90 w-4 h-4 text-text-muted pointer-events-none" />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 font-bold">Message</label>
+
+              <div className="relative group">
                 <textarea 
+                  id="message"
                   rows={4}
-                  placeholder="Tell me about your vision..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-gold transition-colors resize-none text-[#E5E7EB]"
+                  placeholder=" "
+                  className="peer w-full bg-white/5 border border-white/10 rounded-xl px-6 py-5 pt-7 focus:outline-none focus:border-gold focus:bg-white/10 transition-all text-text-primary placeholder-transparent resize-none"
                 />
+                <label 
+                  htmlFor="message"
+                  className="absolute left-6 top-2 text-[10px] text-gold uppercase tracking-widest font-bold transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-text-muted peer-placeholder-shown:font-normal peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-gold peer-focus:font-bold"
+                >
+                  Tell me about your vision...
+                </label>
               </div>
+
               <motion.button 
-                variants={buttonVariants}
-                whileHover="hover"
-                className="bg-gold text-black px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm flex items-center gap-2 hover:bg-gold-muted transition-colors w-full justify-center"
+                whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(212, 175, 55, 0.3)" }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gold text-black py-5 rounded-xl font-bold uppercase tracking-[0.2em] text-sm flex items-center justify-center gap-3 hover:bg-gold-muted transition-all shadow-xl shadow-gold/10"
               >
                 Send Message
-                <ChevronRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </motion.button>
             </form>
           </motion.div>
         </div>
       </motion.div>
     </section>
+    <div className="glow-divider" />
+    </>
   );
 };
 
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-white/5">
+    <footer className="py-12 border-t border-white/5 bg-bg-deep">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
         <Logo className="scale-90 origin-left" />
         
-        <p className="text-[#E5E7EB]/40 text-sm">
+        <p className="text-text-muted text-sm">
           &copy; {new Date().getFullYear()} Sachidananda Sahoo. All rights reserved.
         </p>
 
         <div className="flex gap-8">
-          <a href="#about" className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 hover:text-gold transition-colors">About</a>
-          <a href="#portfolio" className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 hover:text-gold transition-colors">Work</a>
-          <a href="#contact" className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 hover:text-gold transition-colors">Contact</a>
+          <a href="#about" className="text-xs uppercase tracking-widest text-text-muted hover:text-gold transition-colors">About</a>
+          <a href="#portfolio" className="text-xs uppercase tracking-widest text-text-muted hover:text-gold transition-colors">Work</a>
+          <a href="#contact" className="text-xs uppercase tracking-widest text-text-muted hover:text-gold transition-colors">Contact</a>
         </div>
       </div>
     </footer>
@@ -660,7 +761,7 @@ const sectionVariants = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" as const } 
+    transition: { duration: 0.6 } 
   }
 };
 
@@ -678,20 +779,6 @@ const cardVariants = {
 
 const imageVariants = {
   hover: { scale: 1.03 }
-};
-
-const socialIconVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.5 }
-  },
-  hover: { 
-    y: -8, 
-    scale: 1.1,
-    transition: { type: "spring" as const, stiffness: 400, damping: 10 }
-  }
 };
 
 export default function App() {
