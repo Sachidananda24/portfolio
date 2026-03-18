@@ -571,11 +571,11 @@ const Contact = () => {
         variants={staggerVariants}
         className="max-w-7xl mx-auto px-6 relative z-10"
       >
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Side: Branding & Info */}
           <motion.div variants={sectionVariants} className="space-y-12">
             <div className="space-y-8">
-              <div className="flex items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <div className="relative">
                   <div className="absolute -inset-1 bg-gradient-to-tr from-gold to-blue-500 rounded-full blur-sm opacity-50" />
                   <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-white/10 relative">
@@ -609,15 +609,15 @@ const Contact = () => {
               <motion.a 
                 whileHover={{ y: -5 }}
                 href="mailto:sahoosachidananda25@gmail.com" 
-                className="block mt-10 p-8 bg-bg-card/40 backdrop-blur-sm border border-white/5 rounded-2xl group hover:border-gold/30 transition-all"
+                className="block mt-10 p-6 sm:p-8 bg-bg-card/40 backdrop-blur-sm border border-white/5 rounded-2xl group hover:border-gold/30 transition-all"
               >
-                <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
-                    <Mail className="w-6 h-6" />
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all shrink-0">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <div>
+                  <div className="min-w-0 overflow-hidden">
                     <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted mb-1 font-bold">Direct Email</p>
-                    <p className="text-xl font-medium text-text-primary group-hover:text-gold transition-colors">sahoosachidananda25@gmail.com</p>
+                    <p className="text-lg sm:text-xl font-medium text-text-primary group-hover:text-gold transition-colors break-all sm:break-normal">sahoosachidananda25@gmail.com</p>
                   </div>
                 </div>
               </motion.a>
