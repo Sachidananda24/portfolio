@@ -467,9 +467,90 @@ const WhyChooseMe = () => {
   );
 };
 
+const Testimonials = () => {
+  const testimonials = [
+    {
+      name: "Sarah Jenkins",
+      role: "Startup Founder",
+      feedback: "Sachidananda transformed our online presence. The new design is not only stunning but has significantly increased our conversion rates. Highly recommended!"
+    },
+    {
+      name: "Marcus Chen",
+      role: "Business Owner",
+      feedback: "Working with him was a breeze. He understood our vision perfectly and delivered a website that truly captures the essence of our brand."
+    },
+    {
+      name: "Elena Rodriguez",
+      role: "Fitness Coach",
+      feedback: "The zero upfront payment model showed his confidence, and the final result exceeded all expectations. My bookings have doubled since launch."
+    }
+  ];
+
+  return (
+    <section id="testimonials" className="py-20 bg-section-alt">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerVariants}
+        className="max-w-7xl mx-auto px-6"
+      >
+        <motion.div variants={sectionVariants} className="text-center mb-16">
+          <h2 className="text-sm uppercase tracking-[0.4em] text-gold font-bold mb-4">Testimonials</h2>
+          <h3 className="text-4xl md:text-5xl font-serif mb-4 text-[#E5E7EB]">What Clients Say</h3>
+          <p className="text-[#E5E7EB]/60 text-lg max-w-2xl mx-auto">
+            Feedback from people I’ve worked with
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              variants={sectionVariants}
+              className="bg-[#111827] border border-white/10 rounded-2xl p-5 flex flex-col justify-between hover:-translate-y-[5px] transition-transform duration-300"
+            >
+              <p className="text-[#E5E7EB] leading-relaxed mb-6">"{t.feedback}"</p>
+              <div>
+                <p className="text-[#E5E7EB] font-bold tracking-wider text-base">{t.name}</p>
+                <p className="text-[#E5E7EB]/50 text-xs uppercase tracking-widest mt-1">{t.role}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
+const SocialIcon = ({ icon: Icon, href, label, brandColorClass, tooltip }: { icon: any, href: string, label: string, brandColorClass: string, tooltip: string }) => (
+  <div className="relative group">
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      variants={socialIconVariants}
+      whileHover="hover"
+      className="w-14 h-14 rounded-full glass-effect border border-white/10 flex items-center justify-center text-[#E5E7EB]/60 transition-all duration-500 relative shadow-lg hover:border-gold/40 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]"
+      aria-label={label}
+    >
+      <Icon className={`w-6 h-6 transition-all duration-300 ${brandColorClass}`} />
+      
+      {/* Inner Glow Effect */}
+      <div className="absolute inset-0 rounded-full bg-gold/0 group-hover:bg-gold/5 transition-colors duration-300" />
+    </motion.a>
+    
+    {/* Tooltip */}
+    <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gold text-black text-[10px] font-bold uppercase tracking-widest rounded shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-30 transform translate-y-2 group-hover:translate-y-0">
+      {tooltip}
+      <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-gold" />
+    </div>
+  </div>
+);
+
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-section-alt">
+    <section id="contact" className="py-24">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -485,42 +566,18 @@ const Contact = () => {
               Ready to elevate your business with a luxury digital presence? Reach out today for a free consultation.
             </p>
 
-            <div className="space-y-8">
-              <motion.a 
-                variants={cardVariants}
-                whileHover="hover"
-                href="mailto:sahoosachidananda25@gmail.com" 
-                className="flex items-center gap-6 group"
-              >
-                <div className="w-14 h-14 rounded-full bg-section-primary border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-[#E5E7EB]/40 mb-1">Email Me</p>
-                  <p className="text-lg font-medium text-[#E5E7EB]">sahoosachidananda25@gmail.com</p>
-                </div>
-              </motion.a>
-              
-              <div className="flex gap-6">
-                {[
-                  { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/_sachidananda/', label: 'Instagram' },
-                  { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/sachidanandasahoo/', label: 'LinkedIn' },
-                ].map((social, i) => (
-                  <motion.a 
-                    key={i}
-                    variants={buttonVariants}
-                    whileHover="hover"
-                    href={social.href} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-[#E5E7EB]/60 hover:border-gold hover:text-gold transition-all"
-                    aria-label={social.label}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+            <motion.div 
+              variants={staggerVariants}
+              className="flex flex-wrap gap-6 mt-8"
+            >
+              {[
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/sachidanandasahoo/', label: 'LinkedIn', color: 'group-hover:text-[#0077B5] group-hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.5)]', tooltip: 'Connect on LinkedIn' },
+                { icon: Instagram, href: 'https://www.instagram.com/_sachidananda/', label: 'Instagram', color: 'group-hover:text-[#E4405F] group-hover:drop-shadow-[0_0_8px_rgba(228,64,95,0.5)]', tooltip: 'Follow on Instagram' },
+                { icon: Mail, href: 'mailto:sahoosachidananda25@gmail.com', label: 'Email', color: 'group-hover:text-[#EA4335] group-hover:drop-shadow-[0_0_8px_rgba(234,67,53,0.5)]', tooltip: 'Send an Email' },
+              ].map((social, i) => (
+                <SocialIcon key={i} {...social} brandColorClass={social.color} />
+              ))}
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -603,7 +660,7 @@ const sectionVariants = {
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
+    transition: { duration: 0.6, ease: "easeOut" as const } 
   }
 };
 
@@ -623,6 +680,20 @@ const imageVariants = {
   hover: { scale: 1.03 }
 };
 
+const socialIconVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5 }
+  },
+  hover: { 
+    y: -8, 
+    scale: 1.1,
+    transition: { type: "spring" as const, stiffness: 400, damping: 10 }
+  }
+};
+
 export default function App() {
   return (
     <div className="min-h-screen selection:bg-gold selection:text-black">
@@ -633,6 +704,7 @@ export default function App() {
         <Services />
         <Portfolio />
         <WhyChooseMe />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

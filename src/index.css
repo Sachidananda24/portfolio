@@ -53,3 +53,74 @@
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
 }
+
+@media (pointer: fine) {
+  body, a, button, input, textarea, select, .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #FACC15;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-cursor-outline {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-cursor-dot.hover {
+  width: 6px;
+  height: 6px;
+  background-color: #FACC15;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.4);
+}
+
+.custom-cursor-outline.hover {
+  width: 32px;
+  height: 32px;
+  border-color: rgba(250, 204, 21, 0.15);
+  background-color: rgba(250, 204, 21, 0.05);
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: rgba(250, 204, 21, 0.5);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
