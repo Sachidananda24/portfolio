@@ -151,7 +151,7 @@ const Hero = () => {
             >
               Results-Driven Web Design
             </motion.span>
-            <motion.h1 variants={sectionVariants} className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[0.95] mb-12 tracking-tighter text-text-primary">
+            <motion.h1 variants={sectionVariants} className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-bold leading-[0.95] mb-12 tracking-tighter text-text-primary">
               I Design Modern Websites That <span className="text-gold italic">Help Businesses Grow.</span>
             </motion.h1>
             <motion.p variants={sectionVariants} className="text-xl md:text-2xl text-text-secondary mb-14 max-w-xl leading-relaxed font-light">
@@ -191,6 +191,7 @@ const Hero = () => {
               alt="Sachidananda Sahoo - Freelance Web Designer" 
               className="w-full h-full object-cover transition-all duration-700"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent opacity-60" />
             
@@ -398,6 +399,7 @@ const Portfolio = () => {
                   alt={p.title} 
                   className="w-full h-full object-cover transition-transform duration-700"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-gold text-black flex items-center justify-center">
@@ -584,6 +586,7 @@ const Contact = () => {
                       alt="Sachidananda Sahoo" 
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -622,7 +625,7 @@ const Contact = () => {
                 </div>
               </motion.a>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { 
                     icon: <Instagram className="w-5 h-5" />, 
