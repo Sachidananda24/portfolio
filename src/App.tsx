@@ -609,31 +609,43 @@ const Contact = () => {
               <motion.a 
                 whileHover={{ y: -5 }}
                 href="mailto:sahoosachidananda25@gmail.com" 
-                className="block mt-10 p-6 sm:p-8 bg-bg-card/40 backdrop-blur-sm border border-white/5 rounded-2xl group hover:border-gold/30 transition-all"
+                className="block mt-10 p-6 sm:p-8 bg-bg-card/40 backdrop-blur-sm border border-white/5 rounded-2xl group hover:border-[#EA4335]/30 transition-all"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all shrink-0">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center text-[#EA4335] group-hover:scale-110 transition-all shrink-0 shadow-lg shadow-[#EA4335]/10">
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div className="min-w-0 overflow-hidden">
                     <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted mb-1 font-bold">Direct Email</p>
-                    <p className="text-lg sm:text-xl font-medium text-text-primary group-hover:text-gold transition-colors break-all sm:break-normal">sahoosachidananda25@gmail.com</p>
+                    <p className="text-[15px] sm:text-xl font-medium text-white">sahoosachidananda25@gmail.com</p>
                   </div>
                 </div>
               </motion.a>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: <Instagram className="w-5 h-5" />, href: 'https://www.instagram.com/_sachidananda/', label: 'Instagram' },
-                  { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/sachidanandasahoo/', label: 'LinkedIn' },
+                  { 
+                    icon: <Instagram className="w-5 h-5" />, 
+                    href: 'https://www.instagram.com/_sachidananda/', 
+                    label: 'Instagram',
+                    brandColor: 'text-[#E4405F] border-[#E4405F]/20 hover:border-[#E4405F]/40',
+                    shadow: 'rgba(228, 64, 95, 0.15)'
+                  },
+                  { 
+                    icon: <Linkedin className="w-5 h-5" />, 
+                    href: 'https://www.linkedin.com/in/sachidanandasahoo/', 
+                    label: 'LinkedIn',
+                    brandColor: 'text-[#0077B5] border-[#0077B5]/20 hover:border-[#0077B5]/40',
+                    shadow: 'rgba(0, 119, 181, 0.15)'
+                  },
                 ].map((social, i) => (
                   <motion.a 
                     key={i}
-                    whileHover={{ y: -3, boxShadow: "0 0 20px rgba(212, 175, 55, 0.15)" }}
+                    whileHover={{ y: -3, boxShadow: `0 0 20px ${social.shadow}` }}
                     href={social.href} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 py-4 rounded-xl bg-bg-card/40 border border-white/5 text-text-secondary hover:text-gold hover:border-gold/30 transition-all font-bold text-sm tracking-widest uppercase"
+                    className={`flex items-center justify-center gap-3 py-4 rounded-xl bg-bg-card/40 border transition-all font-bold text-sm tracking-widest uppercase ${social.brandColor}`}
                   >
                     {social.icon}
                     <span>{social.label}</span>
